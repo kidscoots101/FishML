@@ -1,6 +1,7 @@
 import cv2 as cv
 from tkinter import *
 from tkinter import ttk
+import numpy as np
 
 def list_camera_options():
     camera_options = []
