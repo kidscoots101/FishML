@@ -109,8 +109,8 @@ if agree_to_terms:
             
            prediction = model.predict(image_array)
            if prediction < 0.5:
-            st.write_stream("The fish is likely healthy.")
+            st.write("The fish is likely healthy.")
            else:
-            st.write_stream("The fish is likely diseased.")
+            st.write("The fish is likely diseased.")
 else:
     st.text("Please agree to our terms before proceeding.")
