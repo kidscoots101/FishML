@@ -9,11 +9,11 @@ from tensorflow.keras.optimizers import RMSprop
 from tensorflow.keras.preprocessing.image import ImageDataGenerator, img_to_array, load_img
 from PIL import Image
 
-# Function to train a model for disease detection from images
+# Defines the function to train a model for disease detection from images
 def train_model():
-    # Define the base directory for training and validation sets
-    base_dir = '/Users/aathithyaj/Desktop/GitHub/fish-disease-diagnosis-py/Dataset.csv'
-    train_dir = os.path.join(base_dir, 'testing_set')
+    # The base directory for training and validation sets
+    base_dir = '/Users/aathithyaj/Desktop/GitHub/fish-disease-diagnosis-py/Dataset.csv' #change accordinly 
+    train_dir = os.path.join(base_dir, 'testing_set') 
     validation_dir = os.path.join(base_dir, 'validation_set')
 
     # Set the image dimensions and batch size for training
@@ -112,9 +112,9 @@ def main():
 
         # Display the prediction result in Streamlit
         if predictions[0] >= 0.265: #0.265 is due to current displayed balues
-            st.write("Prediction: Diseased" + ", " + str(predictions))
+            st.write("Prediction: Diseased" + ", " + str(predictions)) #Prediction
         else:
-            st.write("Prediction: Not Diseased" + ", " + str(predictions))
+            st.write("Prediction: Not Diseased" + ", " + str(predictions)) #Prediction
 
 if name == "main":
     main()
