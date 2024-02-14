@@ -1,3 +1,5 @@
+#->Aathithya & Caleb
+
 # Necessary imports for the project
 import os
 import numpy as np
@@ -10,7 +12,7 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator, img_to_arra
 from PIL import Image
 
 # Defines the function to train a model for disease detection from images
-def train_model():
+def train_model(): 
     # The base directory for training and validation sets
     base_dir = '/Users/aathithyaj/Desktop/GitHub/fish-disease-diagnosis-py/Dataset.csv' #change accordinly 
     train_dir = os.path.join(base_dir, 'testing_set') 
@@ -85,7 +87,9 @@ def load_trained_model(model_path='model_trained.h5'):
         return tf.keras.models.load_model(model_path)
 
 # Function to preprocess the uploaded image file
-def preprocess_image(image_file):
+    
+#->Darryan
+def preprocess_image(image_file): 
     # Open the uploaded image file
     img = Image.open(image_file)
     img = img.convert('RGB')  # Convert image to RGB format
