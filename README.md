@@ -44,6 +44,22 @@ You should see a screen pop up. If you don't, manually click on the links displa
 After the program opens, you should see something like this:
 <img width="1440" alt="Screenshot 2024-02-15 at 7 10 40 PM" src="https://github.com/kidscoots101/fish-disease-diagnosis-py/assets/102847271/f3d9a71c-a2a0-421f-aab2-40cf25c16d8b">
 
+### Step 6:
+Click on "Browse Files" and your finder should pop up as shown:
+<img width="1440" alt="Screenshot 2024-02-15 at 7 11 32 PM" src="https://github.com/kidscoots101/fish-disease-diagnosis-py/assets/102847271/260ae5c1-6fed-4f6d-ae1e-df41716f0ba7">
+
+### Step 7:
+Go to the `Dataset.csv/validation_set` and choose an image from the "healthy" or "diseased" class. The reason is because we trained our model on a different set of images, and by testing the model on a set of images different from the training images, it helps to prove the accuracy of our model.
+<img width="1440" alt="Screenshot 2024-02-15 at 7 16 46 PM" src="https://github.com/kidscoots101/fish-disease-diagnosis-py/assets/102847271/fd08dc3c-ff15-4bb5-9bcf-83f38089ae19">
+
+### Step 8 (last step):
+You should be directed back to the Home screen. The results of the prediction (either diseased or not diseased) is in the red box as shown in the image. The green box represnets a threshold. The threshold is the decision boundary seperating different classes. For example the threshold in this case is 0.11576238, and if the image exceeds this threshold, it's classified as "not diseased". Else if it doesn't exceed this threshold, it's calssifed as "diseased".
+<img width="1440" alt="Screenshot 2024-02-15 at 7 18 12 PM" src="https://github.com/kidscoots101/fish-disease-diagnosis-py/assets/102847271/7364d50a-fd44-4e6d-9c1d-a3c62c6f3013">
+
+
+## Thank you! ❤️
+
+
 
 
 
