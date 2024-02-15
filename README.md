@@ -25,7 +25,26 @@ On line 15, it says:<br />`base_dir = '/Users/aathithyaj/Desktop/GitHub/fish-dis
 
 ## Step by Step Guide:
 ### Step 1:
+Open our program (with datasets and main.py file) in your desired code editor.
 ![image](https://github.com/kidscoots101/fish-disease-diagnosis-py/assets/102847271/6b2d9bda-56c4-4299-98b3-bb7ec4cd5576)
+
+### Step 2:
+Open Main.py
+![image](https://github.com/kidscoots101/fish-disease-diagnosis-py/assets/102847271/33453b80-0367-4896-ada4-5d03af46c310)
+
+### Step 3:
+In your terminal go to the directory and type `streamlit run main.py`. Click enter.
+![image](https://github.com/kidscoots101/fish-disease-diagnosis-py/assets/102847271/6427b73e-4831-4196-96d2-52531e379b58)
+
+### Step 4:
+You should see a screen pop up. If you don't, manually click on the links displayed in the terminal after completing Step 3.
+![image](https://github.com/kidscoots101/fish-disease-diagnosis-py/assets/102847271/edf88c3a-32b7-4a6b-a5f3-add77b76f61e)
+
+### Step 5:
+After the program runs, you should see a `model_trained.h5` file which is basically our trained model.
+![image](https://github.com/kidscoots101/fish-disease-diagnosis-py/assets/102847271/ee382dcd-4b61-454c-9cd7-2cba3b97ac74)
+
+
 
 
 
