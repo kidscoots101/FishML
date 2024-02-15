@@ -21,7 +21,7 @@ We want to be able to speed up the processes of identifying diseases in fish suc
 
 ### NOTE
 In our program there's a specific segment which reuqires customistation on your end. As the path to our datasets will be different from yours, it will require some changing.<br />
-Whenever the code requires for you to specify a path, for example:<br />`base_dir = '/Users/aathithyaj/Desktop/GitHub/fish-disease-diagnosis-py/Dataset.csv'`<br />You should replace it with:<br />`base_dir = '/Users/{yourusername}/path/to/fish-disease-diagnosis-py/Dataset.csv'`<br /> OR `healthy_img = preprocess_image("/Users/aathithyaj/Desktop/GitHub/fish-disease-diagnosis-py/healthy.png")`<br />^ Change it to the path in which our program is found on your computer. [NOTE: These are only examples. Please look through the entire program to see which part requires you to specify your own path.
+Whenever the code requires for you to specify a path, for example:<br />`base_dir = '/Users/aathithyaj/Desktop/GitHub/fish-disease-diagnosis-py/Dataset.csv'` OR `healthy_img = preprocess_image("/Users/aathithyaj/Desktop/GitHub/fish-disease-diagnosis-py/healthy.png")`<br />You should replace it with:<br />`base_dir = '/Users/{yourusername}/path/to/fish-disease-diagnosis-py/Dataset.csv'`<br /> OR `healthy_img = preprocess_image("/Users/{yourusername}/path/to/fish-disease-diagnosis-py/healthy.png")`<br />^ Change it to the path in which our program is found on your computer. [NOTE: These are only examples. Please look through the entire program to see which part requires you to specify your own path.
 
 ## Step by Step Guide:
 ### Step 1:
