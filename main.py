@@ -82,7 +82,19 @@ def load_trained_model(model_path='model_trained.h5'):
     else:
         return tf.keras.models.load_model(model_path)
 
+def calculate_optimal_threshold(model):
+    # preprocess both images
+    healthy_img = preprocess_image("/Users/aathithyaj/Desktop/GitHub/fish-disease-diagnosis-py/healthy.png")
+    infected_img = preprocess_image("/Users/aathithyaj/Desktop/GitHub/fish-disease-diagnosis-py/infected.png")
     
+    # calculate the threshold
+    healthy_pred = model.predict(healthy_img) #healthy img threshold
+    infected_pred = model.predict(infected_img) #infected img threshold
+    
+    # Calculate the average of the prediction scores
+    threshold = (healthy_pred[0] + infected_pred[0]) / 2
+    return threshold
+
 #->Darryan
 def preprocess_image(image_file): 
     img = Image.open(image_file)
@@ -94,22 +106,30 @@ def preprocess_image(image_file):
 
 
 def main():
-    st.title("Disease Detection from Images")
+    st.title("Fish ML")
 
     model = load_trained_model()
+
+    # Specify the paths to your images
+    healthy_img_path = "/Users/aathithyaj/Desktop/GitHub/fish-disease-diagnosis-py/healthy.png"
+    infected_img_path = "/Users/aathithyaj/Desktop/GitHub/fish-disease-diagnosis-py/infected.png"
+    
+    # Calculate the optimal threshold
+    optimal_threshold = calculate_optimal_threshold(model, healthy_img_path, infected_img_path)
+    st.write(f"Optimal Threshold: {optimal_threshold}")
 
     image_file = st.file_uploader("Upload an Image", type=["jpg", "png", "jpeg"])
 
     if image_file is not None:
-        st.image(image_file, use_column_width=True)  # display image
-        processed_image = preprocess_image(image_file)  # prepocess stuff
-        predictions = model.predict(processed_image)  # PREDICT!
+        st.image(image_file, use_column_width=True)
+        processed_image = preprocess_image(image_file)
+        predictions = model.predict(processed_image)
 
-       
-        if predictions[0] >= 0.265:  #0.265 is due to current displayed values
-            st.write("Prediction: Diseased" + ", " + str(predictions)) 
+        if predictions[0] <= optimal_threshold:
+            st.write("Prediction: This fish is diseased" + ", " + str(predictions)) 
         else:
-            st.write("Prediction: Not Diseased" + ", " + str(predictions))
+            st.write("Prediction: This fish is not diseased" + ", " + str(predictions))
 
-if name == "__main__":
+
+if __name__ == "__main__":
     main()
