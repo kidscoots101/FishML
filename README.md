@@ -41,8 +41,9 @@ You should see a screen pop up. If you don't, manually click on the links displa
 ![image](https://github.com/kidscoots101/fish-disease-diagnosis-py/assets/102847271/edf88c3a-32b7-4a6b-a5f3-add77b76f61e)
 
 ### Step 5:
-After the program runs, you should see a `model_trained.h5` file which is basically our trained model.
-![image](https://github.com/kidscoots101/fish-disease-diagnosis-py/assets/102847271/ee382dcd-4b61-454c-9cd7-2cba3b97ac74)
+After the program opens, you should see something like this:
+<img width="1440" alt="Screenshot 2024-02-15 at 7 10 40 PM" src="https://github.com/kidscoots101/fish-disease-diagnosis-py/assets/102847271/f3d9a71c-a2a0-421f-aab2-40cf25c16d8b">
+
 
 
 
