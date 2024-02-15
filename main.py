@@ -84,8 +84,8 @@ def load_trained_model(model_path='model_trained.h5'):
 
 def calculate_optimal_threshold(model):
     # preprocess both images
-    healthy_img = preprocess_image("/Users/aathithyaj/Desktop/GitHub/fish-disease-diagnosis-py/healthy.png")
-    infected_img = preprocess_image("/Users/aathithyaj/Desktop/GitHub/fish-disease-diagnosis-py/infected.png")
+    healthy_img = preprocess_image("/Users/aathithyaj/Desktop/GitHub/fish-disease-diagnosis-py/healthy.png") # NOTE: change path
+    infected_img = preprocess_image("/Users/aathithyaj/Desktop/GitHub/fish-disease-diagnosis-py/infected.png") # NOTE: change path
     
     # calculate the threshold
     healthy_pred = model.predict(healthy_img) #healthy img threshold
