@@ -1,5 +1,8 @@
 ## FishML
 
+### IMPORTANT
+Our program might take a while to load during the very first time you run the program. When you first run, the model hasn't been trained yet. So it will take a while for the model to train. Subsequently after you run the program for the first time, it should take faster to run as the model has already been trained.
+
 ### Enhancing Fish Disease Diagnosis through Machine Learning
 
 Through this solution, we intend to benefit 2 main entities: fish owners and lastly the fishes themselves.
