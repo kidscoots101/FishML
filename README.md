@@ -23,8 +23,10 @@ We want to be able to speed up the processes of identifying diseases in fish suc
 In our program there's a specific segment which reuqires customistation on your end. As the path to our datasets will be different from yours, it will require some changing.<br />
 On line 15, it says:<br />`base_dir = '/Users/aathithyaj/Desktop/GitHub/fish-disease-diagnosis-py/Dataset.csv'`<br />You should replace it with:<br />`base_dir = '/Users/{yourusername}/path/to/fish-disease-diagnosis-py/Dataset.csv'`<br />^ Change it to the path in which our program is found on your computer.
 
-### Step by Step Guide:
-## Step 1:
+## Step by Step Guide:
+### Step 1:
+![image](https://github.com/kidscoots101/fish-disease-diagnosis-py/assets/102847271/6b2d9bda-56c4-4299-98b3-bb7ec4cd5576)
+
 
 
 
