@@ -24,6 +24,8 @@ In our program there's a specific segment which reuqires customistation on your 
 Whenever the code requires for you to specify a path, for example:<br />`base_dir = '/Users/aathithyaj/Desktop/GitHub/fish-disease-diagnosis-py/Dataset.csv'` OR `healthy_img = preprocess_image("/Users/aathithyaj/Desktop/GitHub/fish-disease-diagnosis-py/healthy.png")`<br />You should replace it with:<br />`base_dir = '/Users/{yourusername}/path/to/fish-disease-diagnosis-py/Dataset.csv'`<br /> OR `healthy_img = preprocess_image("/Users/{yourusername}/path/to/fish-disease-diagnosis-py/healthy.png")`<br />^ Change it to the path in which our program is found on your computer. [NOTE: These are only examples. Please look through the entire program to see which part requires you to specify your own path.
 
 ## Step by Step Guide:
+### Also since you can't see the images we attached in TextEdit, we do recommend copying and pasting the links into your browser to view the images. Thanks (The links are the GitHub links btw).
+
 ### Step 1:
 Open our program (with datasets and main.py file) in your desired code editor.
 ![image](https://github.com/kidscoots101/fish-disease-diagnosis-py/assets/102847271/6b2d9bda-56c4-4299-98b3-bb7ec4cd5576)
@@ -58,11 +60,3 @@ You should be directed back to the Home screen. The results of the prediction (e
 
 
 ## Thank you! ❤️
-
-
-
-
-
-
-
-
