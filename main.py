@@ -110,11 +110,11 @@ def main():
 
     model = load_trained_model()
 
-    # Specify the paths to your images
-    healthy_img_path = "/Users/aathithyaj/Desktop/GitHub/fish-disease-diagnosis-py/healthy.png"
-    infected_img_path = "/Users/aathithyaj/Desktop/GitHub/fish-disease-diagnosis-py/infected.png"
+    # path to img
+    healthy_img_path = "/Users/aathithyaj/Desktop/GitHub/fish-disease-diagnosis-py/healthy.png" # NOTE: change path
+    infected_img_path = "/Users/aathithyaj/Desktop/GitHub/fish-disease-diagnosis-py/infected.png" # NOTE: change path
     
-    # Calculate the optimal threshold
+    # calculates the optimal threshold
     optimal_threshold = calculate_optimal_threshold(model, healthy_img_path, infected_img_path)
     st.write(f"Optimal Threshold: {optimal_threshold}")
 
