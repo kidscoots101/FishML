@@ -10,11 +10,11 @@ from tensorflow.keras.optimizers import RMSprop
 from tensorflow.keras.preprocessing.image import ImageDataGenerator, img_to_array, load_img
 from PIL import Image
 
-def train_model(): 
+def train_model():
     # directory for our datasets
-    base_dir = '/Users/aathithyaj/Desktop/GitHub/fish-disease-diagnosis-py/Dataset.csv' #change accordinly 
-    train_dir = os.path.join(base_dir, 'testing_set') 
-    validation_dir = os.path.join(base_dir, 'validation_set')
+    base_dir = '/Users/caleb/Downloads/fish-disease-diagnosis-py/Dataset.csv' #change accordinly 
+    train_dir = os.path.join(base_dir, 'training_set') #training
+    validation_dir = os.path.join(base_dir, 'validation_set') #validating
 
     
     img_width, img_height = 150, 150 # img height and width respectively
@@ -82,16 +82,20 @@ def load_trained_model(model_path='model_trained.h5'):
     else:
         return tf.keras.models.load_model(model_path)
 
-def calculate_optimal_threshold(model):
+def calculate_optimal_threshold(model,healthy_img_path,infected_img_path):
     # preprocess both images
-    healthy_img = preprocess_image("/Users/aathithyaj/Desktop/GitHub/fish-disease-diagnosis-py/healthy.png") # NOTE: change path
-    infected_img = preprocess_image("/Users/aathithyaj/Desktop/GitHub/fish-disease-diagnosis-py/infected.png") # NOTE: change path
+    '''
+    NOTE: these are NOT the images we use to train our model. they are only used to calculate a certain numerical threshold for 
+    the classifican of images
+    '''
+    healthy_img = preprocess_image("/Users/caleb/Downloads/fish-disease-diagnosis-py/healthy.png") # NOTE: change path
+    infected_img = preprocess_image("/Users/caleb/Downloads/fish-disease-diagnosis-py/infected.png") # NOTE: change path
     
     # calculate the threshold
     healthy_pred = model.predict(healthy_img) #healthy img threshold
     infected_pred = model.predict(infected_img) #infected img threshold
     
-    # Calculate the average of the prediction scores
+    # calculate the average of the prediction scores
     threshold = (healthy_pred[0] + infected_pred[0]) / 2
     return threshold
 
@@ -111,8 +115,8 @@ def main():
     model = load_trained_model()
 
     # path to img
-    healthy_img_path = "/Users/aathithyaj/Desktop/GitHub/fish-disease-diagnosis-py/healthy.png" # NOTE: change path
-    infected_img_path = "/Users/aathithyaj/Desktop/GitHub/fish-disease-diagnosis-py/infected.png" # NOTE: change path
+    healthy_img_path = "/Users/caleb/Downloads/fish-disease-diagnosis-py/healthy.png" # NOTE: change path
+    infected_img_path = "/Users/caleb/Downloads/fish-disease-diagnosis-py/infected.png" # NOTE: change path
     
     # calculates the optimal threshold
     optimal_threshold = calculate_optimal_threshold(model, healthy_img_path, infected_img_path)
