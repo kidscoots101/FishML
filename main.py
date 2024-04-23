@@ -60,7 +60,7 @@ def train_model():
     ])
 
     # classification stuff
-    model.compile(optimizer=RMSprop(lr=0.001), loss='binary_crossentropy', metrics=['accuracy'])
+    model.compile(optimizer=RMSprop(learning_rate=0.001), loss='binary_crossentropy', metrics=['accuracy'])
 
     # training stuff
     model.fit(
