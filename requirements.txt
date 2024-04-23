@@ -2,4 +2,3 @@ streamlit
 numpy
 tensorflow
 Pillow
-scipy
