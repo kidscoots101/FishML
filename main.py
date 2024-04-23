@@ -12,7 +12,7 @@ from PIL import Image
 
 def train_model():
     # directory for our datasets
-    base_dir = '/Users/caleb/Downloads/fish-disease-diagnosis-py/Dataset.csv' #change accordinly 
+    base_dir = '/Users/caleb/developer/FishML/Dataset.csv' #change accordinly 
     train_dir = os.path.join(base_dir, 'training_set') #training
     validation_dir = os.path.join(base_dir, 'validation_set') #validating
 
@@ -88,8 +88,8 @@ def calculate_optimal_threshold(model,healthy_img_path,infected_img_path):
     NOTE: these are NOT the images we use to train our model. they are only used to calculate a certain numerical threshold for 
     the classifican of images
     '''
-    healthy_img = preprocess_image("/Users/caleb/Downloads/fish-disease-diagnosis-py/healthy.png") # NOTE: change path
-    infected_img = preprocess_image("/Users/caleb/Downloads/fish-disease-diagnosis-py/infected.png") # NOTE: change path
+    healthy_img = preprocess_image("/Users/caleb/developer/FishML/healthy.png") # NOTE: change path
+    infected_img = preprocess_image("/Users/caleb/developer/FishML/infected.png") # NOTE: change path
     
     # calculate the threshold
     healthy_pred = model.predict(healthy_img) #healthy img threshold
@@ -115,8 +115,8 @@ def main():
     model = load_trained_model()
 
     # path to img
-    healthy_img_path = "/Users/caleb/Downloads/fish-disease-diagnosis-py/healthy.png" # NOTE: change path
-    infected_img_path = "/Users/caleb/Downloads/fish-disease-diagnosis-py/infected.png" # NOTE: change path
+    healthy_img_path = "/Users/caleb/developer/FishML/healthy.png" # NOTE: change path
+    infected_img_path = "/Users/caleb/developer/FishML/infected.png" # NOTE: change path
     
     # calculates the optimal threshold
     optimal_threshold = calculate_optimal_threshold(model, healthy_img_path, infected_img_path)
