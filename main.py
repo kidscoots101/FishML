@@ -75,7 +75,7 @@ def train_model():
     return model
 
 # load model
-def load_trained_model(model_path='model_trained.h5'):
+def load_trained_model(model_path=r'C:\Users\dragon\Downloads\model_trained.h5'):
     if not os.path.exists(model_path):
         return train_model()
     else:
