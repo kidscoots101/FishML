@@ -6,17 +6,16 @@ import streamlit as st
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
-from tensorflow.keras.optimizers import RMSprop
+from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.preprocessing.image import ImageDataGenerator, img_to_array, load_img
 from PIL import Image
 
 def train_model():
     # directory for our datasets
-    base_dir = './Dataset.csv' #change accordinly 
-    train_dir = os.path.join(base_dir, 'training_set') #training
-    validation_dir = os.path.join(base_dir, 'validation_set') #validating
+    base_dir = './Dataset' # change accordingly 
+    train_dir = os.path.join(base_dir, 'training_set') # training
+    validation_dir = os.path.join(base_dir, 'testing_set') # validating
 
-    
     img_width, img_height = 150, 150 # img height and width respectively
     batch_size = 20
 
@@ -60,7 +59,7 @@ def train_model():
     ])
 
     # classification stuff
-    model.compile(optimizer=RMSprop(lr=0.001), loss='binary_crossentropy', metrics=['accuracy'])
+    model.compile(optimizer=Adam(), loss='binary_crossentropy', metrics=['accuracy'])
 
     # training stuff
     model.fit(
@@ -82,18 +81,18 @@ def load_trained_model(model_path='model_trained.h5'):
     else:
         return tf.keras.models.load_model(model_path)
 
-def calculate_optimal_threshold(model,healthy_img_path,infected_img_path):
+def calculate_optimal_threshold(model, healthy_img_path, infected_img_path):
     # preprocess both images
     '''
     NOTE: these are NOT the images we use to train our model. they are only used to calculate a certain numerical threshold for 
-    the classifican of images
+    the classification of images
     '''
-    healthy_img = preprocess_image("./healthy.png") # NOTE: change path
-    infected_img = preprocess_image("./infected.png") # NOTE: change path
+    healthy_img = preprocess_image(healthy_img_path) # NOTE: change path
+    infected_img = preprocess_image(infected_img_path) # NOTE: change path
     
     # calculate the threshold
-    healthy_pred = model.predict(healthy_img) #healthy img threshold
-    infected_pred = model.predict(infected_img) #infected img threshold
+    healthy_pred = model.predict(healthy_img) # healthy img threshold
+    infected_pred = model.predict(infected_img) # infected img threshold
     
     # calculate the average of the prediction scores
     threshold = (healthy_pred[0] + infected_pred[0]) / 2
@@ -115,8 +114,8 @@ def main():
     model = load_trained_model()
 
     # path to img
-    healthy_img_path = "./healthy.png" # NOTE: change path
-    infected_img_path = "./infected.png" # NOTE: change path
+    healthy_img_path = "./healthy.jpeg" # NOTE: change path
+    infected_img_path = "./infected.jpg" # NOTE: change path
     
     # calculates the optimal threshold
     optimal_threshold = calculate_optimal_threshold(model, healthy_img_path, infected_img_path)
@@ -129,7 +128,7 @@ def main():
         processed_image = preprocess_image(image_file)
         predictions = model.predict(processed_image)
 
-        if predictions[0] <= optimal_threshold:
+        if predictions[0] > optimal_threshold:
             st.write("Prediction: This fish is diseased" + ", " + str(predictions)) 
         else:
             st.write("Prediction: This fish is not diseased" + ", " + str(predictions))
