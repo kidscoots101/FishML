@@ -81,22 +81,6 @@ def load_trained_model(model_path='model_trained.h5'):
     else:
         return tf.keras.models.load_model(model_path)
 
-def calculate_optimal_threshold(model, healthy_img_path, infected_img_path):
-    # preprocess both images
-    '''
-    NOTE: these are NOT the images we use to train our model. they are only used to calculate a certain numerical threshold for 
-    the classification of images
-    '''
-    healthy_img = preprocess_image(healthy_img_path) # NOTE: change path
-    infected_img = preprocess_image(infected_img_path) # NOTE: change path
-    
-    # calculate the threshold
-    healthy_pred = model.predict(healthy_img) # healthy img threshold
-    infected_pred = model.predict(infected_img) # infected img threshold
-    
-    # calculate the average of the prediction scores
-    threshold = (healthy_pred[0] + infected_pred[0]) / 2
-    return threshold
 
 #->Darryan
 def preprocess_image(image_file): 
@@ -117,9 +101,8 @@ def main():
     healthy_img_path = "./healthy.jpeg" # NOTE: change path
     infected_img_path = "./infected.jpg" # NOTE: change path
     
-    # calculates the optimal threshold
-    optimal_threshold = calculate_optimal_threshold(model, healthy_img_path, infected_img_path)
-    st.write(f"Optimal Threshold: {optimal_threshold}")
+    st.write(f"Classification of infected or healthy fishes")
+    st.write(f"Diseases include White tailed disease, several parasitic diseases, Saprolegniasis, Bacterial gill disease, Bacterial red disease and Aeromoniasis")
 
     image_file = st.file_uploader("Upload an Image", type=["jpg", "png", "jpeg"])
 
@@ -128,10 +111,10 @@ def main():
         processed_image = preprocess_image(image_file)
         predictions = model.predict(processed_image)
 
-        if predictions[0] > optimal_threshold:
-            st.write("Prediction: This fish is diseased" + ", " + str(predictions)) 
+        if predictions[0] > 0.5:
+            st.write("Prediction: This fish is infected" + ", " + str(predictions)) 
         else:
-            st.write("Prediction: This fish is not diseased" + ", " + str(predictions))
+            st.write("Prediction: This fish is healthy" + ", " + str(predictions))
 
 
 if __name__ == "__main__":
